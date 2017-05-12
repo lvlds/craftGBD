@@ -1,7 +1,7 @@
 # Structure of this README
 1. Folder meanings
 2. Preparation for Training & Testing
-3. Tesing the models on ImageNet val2 data
+3. Testing the models on ImageNet val2 data
 4. Training the models on ImageNet data
 5. Generating proposals
 6. Pre-trained models
@@ -35,7 +35,7 @@ Scripts used for fetching additional data from cloud drive.
 3. run fetch_data/fetch_ResNet_data.m to download pre-trained models for GBD-Net based on ResNet-269.
 4. run fetch_data/fetch_roi_data.m to download the generated proposals for training. You can generate the proposals by yourself, in this case please refer to README in proposal_gen folder.
 
-## -------------- Tesing the models on ImageNet val2 data ----------------
+## -------------- Testing the models on ImageNet val2 data ----------------
 There are two models released, GDB-Net based on BN-Net and GDB-Net based on ResNet-269.
 The following steps show how to test GDB-Net based on BN-Net, steps for ResNet-269 is slightly different.
 
@@ -49,7 +49,7 @@ you can modify the "GPU" list to adapt your hardware configuration.
 3. run the script.
 sh ./run_test_multiGPU_BN_GBD.sh
 
-4. Concatnate the results into one res.txt file. Remember to delete former generated res.txt before concatnation.
+4. Concatenate the results into one res.txt file. Remember to delete former generated res.txt before concatenation.
 cat output/craft_ilsvrc/ilsvrc_2013_val2/BN_GBD_iter_120000/*.txt >> res.txt
 
 5. Go to the "ILSVRC2014_devkit" folder.
@@ -79,12 +79,12 @@ cd BN_1k
 2. finetune the model by running the shell:
 sh ./finetune_all.sh
 
-Note: Fintuning has two stages.
+Note: Fine-tuning has two stages.
 
-1. finetuning a multi-region BN-net from a pretrained BN-net, which is
+1. fine-tuning a multi-region BN-net from a pretrained BN-net, which is
 pretrain/bbox_256x256_ctx_32_multi_scale_full_polyak_7215_8933.caffemodel
 
-2. finetuning the GBD-Net from the multi-region BN-net, which is
+2. fine-tuning the GBD-Net from the multi-region BN-net, which is
 models/BN_M_region_iter_120000.caffemodel
 
 3. after the above two stages, the final model is
